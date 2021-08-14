@@ -24,5 +24,11 @@ public class Application {
         // child
         // father
 
+
+        // 加深理解多态
+        // 问题1：父类的引用变量指向的子类实例，能否调用子类独有的public方法？
+        // 答案：不能！
+        Father father = new Child();
+//        father.test(); // 这句无法通过编译
     }
 }

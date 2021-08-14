@@ -11,9 +11,9 @@ public class Father {
 
     public String name = "father";
 
-//    public Father() {
-//        System.out.println("create a father!");
-//    }
+    public Father() {
+        System.out.println("create a father!");
+    }
 
     public Father(String name, int age) {
         System.out.println("person name: " + name + "   age: " + age);
