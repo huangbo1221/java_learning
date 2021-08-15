@@ -48,7 +48,7 @@ public class TalkSend implements Runnable{
                 // 组数包数据
                 DatagramPacket datagramPacket = new DatagramPacket(sendDatas, 0, sendDatas.length, new InetSocketAddress(this.sendIp, this.toPort));
                 datagramSocket.send(datagramPacket);
-                if (datas.equals("bye")) {
+                if (datas.trim().equals("bye")) {
                     break;
                 }
             }

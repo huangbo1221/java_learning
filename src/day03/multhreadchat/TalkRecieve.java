@@ -40,7 +40,7 @@ public class TalkRecieve implements Runnable{
                 String data = new String(datagramPacket.getData(), 0, datagramPacket.getLength());
                 System.out.println(this.user + ": " + data);
 
-                if (data.equals("bye")) {
+                if (data.trim().equals("bye")) {
                     break;
                 }
             }
