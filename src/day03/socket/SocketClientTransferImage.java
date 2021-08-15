@@ -1,8 +1,6 @@
 package day03.socket;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.OutputStream;
+import java.io.*;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
@@ -28,6 +26,20 @@ public class SocketClientTransferImage {
             outputStream.write(buffer, 0 , len);
         }
 
+        // 告诉服务器我已经输出完毕了
+        socket.shutdownOutput();
+
+        // 要收到服务器发来的反馈
+        InputStream inputStream = socket.getInputStream();
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        byte[] buffer2 = new byte[1024];
+        int len2;
+        while ((len2 = inputStream.read(buffer2)) != -1) {
+            byteArrayOutputStream.write(buffer2, 0 ,len2);
+        }
+        System.out.println(byteArrayOutputStream.toString());
+
+        // 关闭资源
         fileInputStream.close();
         outputStream.close();
         socket.close();

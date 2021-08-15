@@ -26,6 +26,11 @@ public class SocketServerRecieveImage {
             fileOutputStream.write(buffer, 0, len);
         }
 
+        // 增加步骤，服务器要确认已经接收完毕，反馈给客户端
+        OutputStream outputStream = accept.getOutputStream();
+        outputStream.write("服务器已经接收完毕！".getBytes());
+
+        // 关闭资源
         fileOutputStream.close();
         inputStream.close();
         accept.close();
