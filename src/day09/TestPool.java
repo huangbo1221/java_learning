@@ -10,9 +10,22 @@ import java.util.concurrent.Executors;
  * @Date 2021/8/23 22:39
  * @Version 1.0
  */
+
+/**
+ * 重复利用池子里的线程
+ * 下面的输出为：
+ * pool-1-thread-2
+ * pool-1-thread-1
+ * pool-1-thread-3
+ * pool-1-thread-1
+ * pool-1-thread-2
+ * pool-1-thread-3
+ */
 public class TestPool {
     public static void main(String[] args) {
-        ExecutorService es = Executors.newFixedThreadPool(5);
+        ExecutorService es = Executors.newFixedThreadPool(3);
+        es.execute(new MyThread());
+        es.execute(new MyThread());
         es.execute(new MyThread());
         es.execute(new MyThread());
         es.execute(new MyThread());
