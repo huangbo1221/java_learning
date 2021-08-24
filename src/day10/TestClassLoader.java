@@ -16,11 +16,15 @@ package day10;
  * 1163157884
  * 1163157884
  * 1163157884
+ * 414493378
+ * 414493378
+ * 414493378
  *
  * 解释：
  * 前面三个之所以不一样，是因为testClassLoader1和testClassLoader2、testClassLoader3
  * 是三个不同的实例化对象。
  * 而testClassLoader1.getClass()是返回最初的模板类，上面的三个类都是由一个模板类new出来的
+ * 最后三个来自于同一个类加载器
  */
 public class TestClassLoader {
 
@@ -39,5 +43,12 @@ public class TestClassLoader {
         System.out.println(aClass1.hashCode());
         System.out.println(aClass2.hashCode());
         System.out.println(aClass3.hashCode());
+
+        ClassLoader classLoader1 = aClass1.getClassLoader();
+        ClassLoader classLoader2 = aClass2.getClassLoader();
+        ClassLoader classLoader3 = aClass3.getClassLoader();
+        System.out.println(classLoader1.hashCode());
+        System.out.println(classLoader2.hashCode());
+        System.out.println(classLoader3.hashCode());
     }
 }
