@@ -50,5 +50,26 @@ public class TestClassLoader {
         System.out.println(classLoader1.hashCode());
         System.out.println(classLoader2.hashCode());
         System.out.println(classLoader3.hashCode());
+
+
+
+
+        new Thread(() -> {
+
+        }, "test").start();
+        // 在Thread类可以看到，调用start后，最终会调用一个start0方法，就截止了
+        // private native void start0();
+        /**
+         * 说明：
+         * native:凡是带了native关键字的，表示java能达到的作用范围就已经截止了。如Thread类的start0方法，
+         * 线程级别的功能就涉及到调用系统级的功能，比如内核。native表示调用底层的c/c++的库来达到目的。
+         *
+         * 1、首先当java执行到native修饰的方法时，会进入本地方法栈，调用本地方法接口（JNI----JAVA native interface）。
+         * JNI作用：扩展java的使用，融合不同的编程语言为java所用。最初是为了调C/C++。
+         * 在内存中专门开辟了一块区域（本地方法栈---native method stack。登记native方法）
+         *
+         * 2、执行的时候，通过本地方法接口（JNI）调用本地方法库，实现调用系统底层资源的目的。
+         */
+
     }
 }
