@@ -19,27 +19,27 @@ public class ReflectionTestDay14 {
         System.out.println(aClass.newInstance());
         // 输出如下：
         /**
-         * User{name='null', id=0, age=0}
+         * day15.User{name='null', id=0, age=0}
          */
         System.out.println("======================");
         System.out.println(aClass.getDeclaredConstructor().newInstance());
         // 输出如下：
         /**
-         * User{name='null', id=0, age=0}
+         * day15.User{name='null', id=0, age=0}
          */
         // 可知：本质上上面两个获取对象实例的方法是调用了User类的无参构造方法
 
         Constructor declaredConstructor = aClass.getDeclaredConstructor(String.class, int.class, int.class);
         System.out.println(declaredConstructor);
-//        User user1 = (User) declaredConstructor.newInstance("huangbo1221", 12, 12);
+//        day15.User user1 = (day15.User) declaredConstructor.newInstance("huangbo1221", 12, 12);
 //        System.out.println(user1);
         // 上面的输出如下：可知，getDeclaredConstructor虽然可以获取到本类指定的构造方法，包括私有的。但是针对私有的构造方法，不能实例化对象
         /**
-         * User{name='null', id=0, age=0}
+         * day15.User{name='null', id=0, age=0}
          * ======================
-         * User{name='null', id=0, age=0}
-         * private day14.User(java.lang.String,int,int)
-         * Exception in thread "main" java.lang.IllegalAccessException: Class day14.ReflectionTestDay14 can not access a member of class day14.User with modifiers "private"
+         * day15.User{name='null', id=0, age=0}
+         * private day14.day15.User(java.lang.String,int,int)
+         * Exception in thread "main" java.lang.IllegalAccessException: Class day14.ReflectionTestDay14 can not access a member of class day14.day15.User with modifiers "private"
          * 	at sun.reflect.Reflection.ensureMemberAccess(Reflection.java:102)
          * 	at java.lang.reflect.AccessibleObject.slowCheckMemberAccess(AccessibleObject.java:296)
          * 	at java.lang.reflect.AccessibleObject.checkAccess(AccessibleObject.java:288)
@@ -52,11 +52,11 @@ public class ReflectionTestDay14 {
         System.out.println(user2);
         // 上面的输出如下
         /**
-         * User{name='null', id=0, age=0}
+         * day15.User{name='null', id=0, age=0}
          * ======================
-         * User{name='null', id=0, age=0}
-         * public day14.User(java.lang.String,int,int)
-         * User{name='huangbo1221', id=12, age=12}
+         * day15.User{name='null', id=0, age=0}
+         * public day14.day15.User(java.lang.String,int,int)
+         * day15.User{name='huangbo1221', id=12, age=12}
          */
 
         System.out.println("========================================");
@@ -66,13 +66,13 @@ public class ReflectionTestDay14 {
         System.out.println(user3);
         // 上面的所有输出如下：
         /**
-         * User{name='null', id=0, age=0}
+         * day15.User{name='null', id=0, age=0}
          * ======================
-         * User{name='null', id=0, age=0}
-         * public day14.User(java.lang.String,int,int)
-         * User{name='huangbo1221', id=12, age=12}
+         * day15.User{name='null', id=0, age=0}
+         * public day14.day15.User(java.lang.String,int,int)
+         * day15.User{name='huangbo1221', id=12, age=12}
          * ========================================
-         * User{name='liubo', id=0, age=0}
+         * day15.User{name='liubo', id=0, age=0}
          */
 
         System.out.println("==============================");
@@ -82,7 +82,7 @@ public class ReflectionTestDay14 {
         System.out.println(user3);
         // 上面的打印输出如下：可知，私有属性无法访问
         /**
-         * Exception in thread "main" java.lang.IllegalAccessException: Class day14.ReflectionTestDay14 can not access a member of class day14.User with modifiers "private"
+         * Exception in thread "main" java.lang.IllegalAccessException: Class day14.ReflectionTestDay14 can not access a member of class day14.day15.User with modifiers "private"
          * 	at sun.reflect.Reflection.ensureMemberAccess(Reflection.java:102)
          * 	at java.lang.reflect.AccessibleObject.slowCheckMemberAccess(AccessibleObject.java:296)
          * 	at java.lang.reflect.AccessibleObject.checkAccess(AccessibleObject.java:288)
@@ -97,7 +97,7 @@ public class ReflectionTestDay14 {
         System.out.println(user3);
         // 上面的输出如下:
         /**
-         * User{name='liubo', id=15, age=0}
+         * day15.User{name='liubo', id=15, age=0}
          */
     }
 
@@ -146,7 +146,7 @@ class User {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "day15.User{" +
                 "name='" + name + '\'' +
                 ", id=" + id +
                 ", age=" + age +

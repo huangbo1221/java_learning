@@ -67,7 +67,7 @@ class User {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "day15.User{" +
                 "name='" + name + '\'' +
                 ", id=" + id +
                 ", age=" + age +
