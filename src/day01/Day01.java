@@ -25,6 +25,13 @@ public class Day01 {
         Child child = new Child();
         child.testMethod();
 
+        // 上面的输出如下：多态场景下（父类对象指向子类的实例时），调用重名静态方法仍是父类的静态方法
+        /**
+         * i'm child test method
+         * i'm father static method
+         * i'm child static method
+         */
+
 
     }
 }
