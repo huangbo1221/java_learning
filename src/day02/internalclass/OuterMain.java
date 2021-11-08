@@ -29,6 +29,21 @@ public class OuterMain {
             }
         };
         userService.hello();
+
+        UserService userService1 = () -> {
+            System.out.println("这个是匿名内部类2");
+        };
+        userService1.hello();
+
+        // 上面的输出如下：
+        /**
+         * 这是外部类在运行！
+         * 局部内部类在运行
+         * 这是内部类在运行， id: 10
+         * 这是静态内部类在运行
+         * 这个是匿名内部类
+         * 这个是匿名内部类2
+         */
     }
 
 }
